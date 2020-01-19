@@ -1,6 +1,7 @@
 const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const autoprefixer = require('autoprefixer');
 //const miniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -58,12 +59,14 @@ const config = {
           'url-loader?limit=1024&name=img/[name]-[hash:16].[ext]',
           'image-webpack-loader'
       	]
-      }
+      },
+      { test:/\.vue$/, use:'vue-loader'}
   	]
   },
 
   plugins: [
     new uglify(),
+    new VueLoaderPlugin(),
     new htmlWebpackPlugin({
       minify: {
       	removeComments: true,
@@ -85,6 +88,12 @@ const config = {
   	},
   	host: 'localhost',
   	port: 3200
+  },
+  // 设置 vue 被导入时的包的路径
+  resolve:{
+    // alias:{
+    //   "vue$":"vue/dist/vue.js"
+    // }
   }
 };
 

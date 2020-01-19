@@ -1,12 +1,12 @@
 <template>
-  <div class="index">
+  <div class="Index">
       {{msg}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'index',
+  name: 'Index',
   data () {
     return {
       msg: 'This is my components!'

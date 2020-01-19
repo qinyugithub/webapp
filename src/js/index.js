@@ -1,17 +1,25 @@
 import Vue from 'vue'
-import Index from '../components/Index'
+import Index from '../components/Index.vue'
 
-// var app = new Vue({
-//     el: '#test',
-//     data: {
-//       message: 'Hello Vue!'
-//     },
-//     created: function () {
-//         console.log('app is created')
+// Vue.component('button-counter', {
+//     data: function () {
+//       return {
+//         count: 0
 //       }
+//     },
+//     template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
 //   })
+
+  
 new Vue({
-    el: '#test',
-    components: { Index },
-    template: '<Index/>'
+    el: '#app',
+    data: {
+        name:"qinyu"
+    },
+    created: function () {
+       console.log('qinyu app')
+    },
+    render:function(createElements){
+        return createElements(Index)
+    }
   })
