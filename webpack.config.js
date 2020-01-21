@@ -29,7 +29,13 @@ const config = {
       	test: /\.tpl$/,
       	loader: 'ejs-loader'
       },
-
+      {
+        test: /\.css$/,
+        use:[
+          'vue-style-loader',
+          'css-loader'
+        ]
+      },
       {
         test: /\.scss$/,
         use: [
